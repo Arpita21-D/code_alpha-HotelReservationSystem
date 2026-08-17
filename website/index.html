@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeAlpha Grand Hotel</title>
+    <meta
+      name="description"
+      content="CodeAlpha Grand Hotel booking website for room reservations and hotel management."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar container">
+        <div class="brand" aria-label="CodeAlpha Grand Hotel home">
+          <span class="brand-mark">C</span>
+          <span>CodeAlpha Grand Hotel</span>
+        </div>
+
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#rooms">Rooms</a>
+          <a href="#booking">Booking</a>
+          <a href="#reservations">Reservations</a>
+        </div>
+
+        <a class="nav-button" href="#booking">Book Now</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <span class="eyebrow">Luxury stay experience</span>
+            <h1>Comfort, elegance, and unforgettable hospitality.</h1>
+            <p>
+              Welcome to CodeAlpha Grand Hotel, where spacious rooms, world-class
+              service, and peaceful surroundings make every stay memorable.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#booking" class="primary-btn">Book Now</a>
+              <a href="#rooms" class="secondary-btn">Explore Rooms</a>
+            </div>
+
+            <div class="hero-stats" aria-label="Hotel highlights">
+              <div>
+                <strong>6</strong>
+                <span>Premium rooms</span>
+              </div>
+              <div>
+                <strong>24/7</strong>
+                <span>Guest support</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong>
+                <span>Guest rating</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="rooms" class="rooms section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-tag">Our rooms</p>
+            <h2>Stay in style</h2>
+            <p>
+              Explore our carefully designed rooms and choose the one that suits
+              your trip best.
+            </p>
+          </div>
+
+          <div class="room-filters">
+            <div class="filter-item">
+              <label for="roomTypeFilter">Room type</label>
+              <select id="roomTypeFilter">
+                <option value="all">All types</option>
+                <option value="Standard">Standard</option>
+                <option value="Deluxe">Deluxe</option>
+                <option value="Suite">Suite</option>
+              </select>
+            </div>
+
+            <div class="filter-item">
+              <label for="availabilityFilter">Availability</label>
+              <select id="availabilityFilter">
+                <option value="all">All rooms</option>
+                <option value="available">Available only</option>
+                <option value="booked">Booked only</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="roomsGrid" class="rooms-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="booking" class="booking section">
+        <div class="container booking-wrapper">
+          <div class="booking-card">
+            <div class="section-heading small-heading">
+              <p class="section-tag">Booking</p>
+              <h2>Reserve your stay</h2>
+            </div>
+
+            <form id="bookingForm" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="customerName">Customer name</label>
+                  <input id="customerName" name="customerName" type="text" placeholder="John Smith" />
+                </div>
+
+                <div class="field">
+                  <label for="customerEmail">Email</label>
+                  <input id="customerEmail" name="customerEmail" type="email" placeholder="name@example.com" />
+                </div>
+
+                <div class="field">
+                  <label for="customerPhone">Phone number</label>
+                  <input id="customerPhone" name="customerPhone" type="tel" placeholder="+1 234 567 890" />
+                </div>
+
+                <div class="field">
+                  <label for="guestCount">Number of guests</label>
+                  <input id="guestCount" name="guestCount" type="number" min="1" max="6" value="2" />
+                </div>
+
+                <div class="field">
+                  <label for="roomSelect">Room</label>
+                  <select id="roomSelect" name="roomSelect">
+                    <option value="">Select a room</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="checkIn">Check-in date</label>
+                  <input id="checkIn" name="checkIn" type="date" />
+                </div>
+
+                <div class="field">
+                  <label for="checkOut">Check-out date</label>
+                  <input id="checkOut" name="checkOut" type="date" />
+                </div>
+
+                <div class="field field-readonly">
+                  <label>Reservation ID</label>
+                  <input id="reservationPreview" type="text" value="Will be generated after booking" readonly />
+                </div>
+              </div>
+
+              <div class="booking-summary">
+                <div class="summary-row">
+                  <span>Number of nights</span>
+                  <strong id="nightsDisplay">0</strong>
+                </div>
+                <div class="summary-row total-row">
+                  <span>Total cost</span>
+                  <strong id="totalPriceDisplay">$0.00</strong>
+                </div>
+              </div>
+
+              <div id="formMessage" class="form-message" aria-live="polite"></div>
+
+              <button type="submit" class="primary-btn full-width">Book Room</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="reservations" class="reservations section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-tag">Your bookings</p>
+            <h2>Reservation history</h2>
+          </div>
+          <div id="reservationsList" class="reservation-list" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <div class="brand footer-brand">
+            <span class="brand-mark">C</span>
+            <span>CodeAlpha Grand Hotel</span>
+          </div>
+          <p>Luxury comfort for every traveler.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#rooms">Rooms</a>
+          <a href="#booking">Booking</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
