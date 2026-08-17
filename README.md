@@ -274,7 +274,7 @@ The current project is a solid foundation and can be expanded with:
 
 ## 👤 Author
 
-- Name: Amit
+- Name: ARPITA DESAI
 - Project: Hotel Reservation System
 - Role: Java and web development project
 - LinkedIn/GitHub: Add your profile link here
